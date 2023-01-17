@@ -1,16 +1,4 @@
-_DEBUG = false
-
-cvar.clear:call()
-
-common.add_notify("Successfully Loaded", "Welcome to Amphetamine.Systems")
-
-local consolelogo = network.get("https://raw.githubusercontent.com/3dsgirl09/Side-Projects/main/logotest")
-print(consolelogo)
-print_dev("Welcome to amphetamine.sys, "..common.get_username().."")
-
-events.round_start:set(function() print_chat("Welcome to Amphetamine.Systems, "..common.get_username().."! Made by Nyt#3227 & cl_junkcode#3005") end)
-
-
+--why are you reading the source captain?
 local ffi = require("ffi")
 ffi.cdef[[
     bool DeleteUrlCacheEntryA(const char* lpszUrlName);
@@ -82,7 +70,6 @@ ffi.cdef[[
     } CCSGOPlayerAnimationState_534535_t;
 
 ]]
-
 
 local function in_air()
     local localplayer = entity.get_local_player()
@@ -191,44 +178,64 @@ local menu_items = {items = {}; visibler = {}}
 menu_items.run_update = function() for name, m_table in pairs(menu_items.visibler) do m_table.ref:set_visible(m_table.condition()) end end
 menu_items.new = function(name, item, conditions) if menu_items.items[name] ~= nil then error("item already have") return end menu_items.items[name] = item if type(conditions) == "function" then menu_items.visibler[name] = { ref = item, condition = conditions } end item:set_callback(menu_items.run_update) return item end
 
-local welcoming = ui.create("Home", "Home")
-local changelog = ui.create("Home", "Change Log")
-local png = ui.create("Home", "amphetamine.sys - neverlose")
-local cfgsys = ui.create("Home", "Config System")
-local dsserver = ui.create("Home", "Discord Server")
-local premiumtick = ui.create("Rage/Exploits", "Ideal Tick")
-local premiumhc = ui.create("Rage/Exploits", "Hitchance")
-local premiumfov = ui.create("Rage/Exploits", "Advanced Targetting")
-local premiumas = ui.create("Rage/Exploits", "Misc")
+local welcoming = ui.create("Home", "Ho\aA9ACFFFFme")
+local changelog = ui.create("Home", "Change \aA9ACFFFFLog")
+local png = ui.create("Home", "amphetamine.sys - \aA9ACFFFFneverlose")
+local cfgsys = ui.create("Home", "Config \aA9ACFFFFSystem")
+local dsserver = ui.create("Home", "Discord \aA9ACFFFFServer")
+local premiumtick = ui.create("Rage/Exploits", "Ideal \aA9ACFFFFTick")
+local premiumhc = ui.create("Rage/Exploits", "Hit\aA9ACFFFFchance")
+local premiumfov = ui.create("Rage/Exploits", "Advanced \aA9ACFFFFTargetting")
+local premiumas = ui.create("Rage/Exploits", "Mi\aA9ACFFFFsc")
 local rbot = ui.create("Rage-Bot", "Rage-Bot")
-local antihit = ui.create("Anti-Aim", "Anti-Aim")
+local antihit = ui.create("Anti-Aim", "Anti-\aA9ACFFFFAim")
 local antihitbuilder = ui.create("Anti-Aim", "Builder")
-local antihitantibrute = ui.create("Anti-Aim", "Anti-Brute")
-local visuals = ui.create("Visuals", "Visuals")
-local visualsclr = ui.create("Visuals", "Color")
-local misctabgg = ui.create("Misc", "Miscellaneous")
-local tttab = ui.create("Misc", "Killsay Settings")
-local artab = ui.create("Misc", "Aspect Ratio Settings")
-local vmtab = ui.create("Misc", "Viewmodel Settings")
-local logstab = ui.create("Misc", "Logs Settings")
-local luaexec = ui.create("Experimental", "Lua Executor [HIGHLY EXPERIMENTAL]")
-local ghelper =ui.create("Experimental", "Grenade Helper")
+local antihitantibrute = ui.create("Anti-Aim", "Anti-\aA9ACFFFFBrute")
+local visuals = ui.create("Visuals", "Vis\aA9ACFFFFuals")
+local visualsclr = ui.create("Visuals", "Co\aA9ACFFFFlor")
+local misctabgg = ui.create("Misc", "Miscell\aA9ACFFFFaneous")
+local tttab = ui.create("Misc", "Killsay \aA9ACFFFFSettings")
+local artab = ui.create("Misc", "Aspect Ra\aA9ACFFFFtio Settings")
+local vmtab = ui.create("Misc", "Viewmodel \aA9ACFFFFSettings")
+local logstab = ui.create("Misc", "Logs \aA9ACFFFFSettings")
+local luaexec = ui.create("Experimental", "Lua Executor \aA9ACFFFF[HIGHLY EXPERIMENTAL]")
+local ghelper =ui.create("Experimental", "Grenade \aA9ACFFFFHelper")
 
-welcoming:texture(render.load_image(network.get("https://media.discordapp.net/attachments/847022752443793459/1062732847745618070/newtitle.png"), vector(250, 63)), vector(250, 63), color(255, 255, 255, 255), 'f')
+cvar.clear:call()
+
+common.add_notify("Successfully Loaded", "Welcome to Amphetamine.Systems")
+
+local consolelogo = network.get("https://raw.githubusercontent.com/3dsgirl09/Side-Projects/main/logotest")
+print(consolelogo)
+print_dev("Welcome to amphetamine.sys, "..common.get_username().."")
+
+events.round_start:set(function() print_chat("Welcome to Amphetamine.Systems, "..common.get_username().."! Made by Nyt#3227 & cl_junkcode#3005") end)
+
+welcoming:texture(render.load_image(network.get("https://cdn.discordapp.com/attachments/847022752443793459/1064903222537486426/Untitled2.png"), vector(300, 76)), vector(250, 63), color(255, 255, 255, 255), 'f')
 welcoming:label("Welcome, "..common.get_username()..'!')
 welcoming:label("This is amphetamine.sys development build")
-welcoming:label("Last updated on the 8th of January 2023")
-changelog:label("20.12.22: Script Release")
-changelog:label("22.12.22: Added AA Builder and Presets")
-changelog:label("27.12.22: Added clantags and trashtalk")
-changelog:label("29.12.22: Added fake backtrack ticks and improved Anti-Aim Presets")
-changelog:label("04.01.23: Discord Server added and New Preset added to the Home Page")
-changelog:label("06.01.23: Added more settings for exploits & added Grenade Helper")
+welcoming:label("Last updated on the 17th of January 2023")
+changelog:label("20.12.22: Script Release.")
+changelog:label("22.12.22: Added AA Builder and Presets.")
+changelog:label("27.12.22: Added clantags and trashtalk.")
+changelog:label("29.12.22: Added fake backtrack ticks and improved Anti-Aim Presets.")
+changelog:label("04.01.23: Discord Server added and New Preset added to the Home Page.")
+changelog:label("06.01.23: Added more settings for exploits & added Grenade Helper.")
 changelog:label("08.01.23: Visual overhaul, Grenade Helper temporarly removed, Experimental Lua Executor added.")
+changelog:label("17.01.23: Choke DT in air, and more exploit settings added.")
 local discordserv = dsserver:button("        Join Discord        ")
 dsserver:button("           Get Role           ")
+cfgsys:label("                              Cloud Configs")
 local export_cfg = cfgsys:button("       Export Config       ")
-local import_cfg = cfgsys:button("      Import Config      ")
+local import_cfg = cfgsys:button("       Import Config       ")
+cfgsys:label("                              Local Configs")
+local export_cfg_file = cfgsys:button("     Export To Slot 1     ")
+local import_cfg_file = cfgsys:button("       Import Slot 1        ")
+local export_cfg_file2 = cfgsys:button("     Export To Slot 2     ")
+local import_cfg_file2 = cfgsys:button("       Import Slot 2        ")
+local export_cfg_file3 = cfgsys:button("     Export To Slot 3     ")
+local import_cfg_file3 = cfgsys:button("       Import Slot 3        ")
+cfgsys:label("                              Preset Configs")
 local defcfg = cfgsys:button("                       Load Default Config                         ")
 local capconfig = cfgsys:button ("                     Captain's P100 Config                       ")
 luaexec:label("This is extremely unstable and may cause issues with Neverlose and/or Amphetamine")
@@ -292,6 +299,7 @@ local render_string = function(x,y,cen,string,color,TYPE,font,fontsize)  if TYPE
 
 files.create_folder('nl\\amphetamine')
 files.create_folder('nl\\amphetamine\\luas')
+files.create_folder('nl\\amphetamine\\configs')
 
 local file_downloader = {}
 file_downloader.urlmon = ffi.load('UrlMon')
@@ -479,7 +487,7 @@ menu.preferlagcomp:set_tooltip('Attempts to use anti defensive for targetting')
 
 menu.autostop = menu_items.new("autostopfix", premiumas:switch("Directional Strafe", false))
 
-menu.fas2nospread = menu_items.new("fas2nospread", premiumas:combo("Nospread", {"None", "FAS2 Nospread", "CW2 Nospread"}, 0))
+menu.fas2nospread = menu_items.new("fas2nospread", premiumas:combo("Nospread*", {"None", "FAS2 Nospread", "CW2 Nospread"}, 0))
 premiumas:label("*CW2/FAS2 may not work on some servers")
 
 menu.shotdelay = menu_items.new("shotdelay1", premiumas:switch("Delay Shot", false))
@@ -1952,6 +1960,120 @@ end
 
 import_cfg:set_callback(function()
     config_load(clipboard.get():gsub("amphetamine_", ""))
+end)
+
+export_cfg_file:set_callback(function()
+    local protected = function()
+        local cfg_data = {}
+        for key, value in pairs(menu_items.items) do
+            local ui_value = value:get()
+            if type(ui_value) == "userdata" then
+                cfg_data[key] = ui_value:to_hex()
+            else
+                cfg_data[key] = ui_value
+            end
+        end
+        cfg_data["loadusername"] = common.get_username()
+        local json_config = json.stringify(cfg_data)
+        local encoded_config = base64.encode(json_config)
+        files.write("nl\\amphetamine\\configs\\slot1", "amphetamine_"..encoded_config)
+        table.insert(miscellaneous.stuff,{text2 = {
+            name = '',
+            hit = 'config has been succecfully',
+            who = " exported",
+            in_the = '',
+            where = '',
+            for_ = '',
+            how_much = "",
+            damage = '',
+            how_muc_r = '',
+            health = ''
+        }, alpha = 0, alpha1 = 0, type = 'Hit', time = globals.realtime})
+    end
+    local status, message = pcall(protected)
+    if not status then
+        return
+    end
+end)
+
+import_cfg_file:set_callback(function()
+    config_load(files.read("nl\\amphetamine\\configs\\slot1"):gsub("amphetamine_", ""))
+end)
+
+export_cfg_file2:set_callback(function()
+    local protected = function()
+        local cfg_data = {}
+        for key, value in pairs(menu_items.items) do
+            local ui_value = value:get()
+            if type(ui_value) == "userdata" then
+                cfg_data[key] = ui_value:to_hex()
+            else
+                cfg_data[key] = ui_value
+            end
+        end
+        cfg_data["loadusername"] = common.get_username()
+        local json_config = json.stringify(cfg_data)
+        local encoded_config = base64.encode(json_config)
+        files.write("nl\\amphetamine\\configs\\slot2", "amphetamine_"..encoded_config)
+        table.insert(miscellaneous.stuff,{text2 = {
+            name = '',
+            hit = 'config has been succecfully',
+            who = " exported",
+            in_the = '',
+            where = '',
+            for_ = '',
+            how_much = "",
+            damage = '',
+            how_muc_r = '',
+            health = ''
+        }, alpha = 0, alpha1 = 0, type = 'Hit', time = globals.realtime})
+    end
+    local status, message = pcall(protected)
+    if not status then
+        return
+    end
+end)
+
+import_cfg_file2:set_callback(function()
+    config_load(files.read("nl\\amphetamine\\configs\\slot1"):gsub("amphetamine_", ""))
+end)
+
+export_cfg_file3:set_callback(function()
+    local protected = function()
+        local cfg_data = {}
+        for key, value in pairs(menu_items.items) do
+            local ui_value = value:get()
+            if type(ui_value) == "userdata" then
+                cfg_data[key] = ui_value:to_hex()
+            else
+                cfg_data[key] = ui_value
+            end
+        end
+        cfg_data["loadusername"] = common.get_username()
+        local json_config = json.stringify(cfg_data)
+        local encoded_config = base64.encode(json_config)
+        files.write("nl\\amphetamine\\configs\\slot3", "amphetamine_"..encoded_config)
+        table.insert(miscellaneous.stuff,{text2 = {
+            name = '',
+            hit = 'config has been succecfully',
+            who = " exported",
+            in_the = '',
+            where = '',
+            for_ = '',
+            how_much = "",
+            damage = '',
+            how_muc_r = '',
+            health = ''
+        }, alpha = 0, alpha1 = 0, type = 'Hit', time = globals.realtime})
+    end
+    local status, message = pcall(protected)
+    if not status then
+        return
+    end
+end)
+
+import_cfg_file3:set_callback(function()
+    config_load(files.read("nl\\amphetamine\\configs\\slot1"):gsub("amphetamine_", ""))
 end)
 
 defcfg:set_callback(function()
