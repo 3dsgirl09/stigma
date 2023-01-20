@@ -305,6 +305,9 @@ local loadluafile1 = luaexec:button("      Load Lua File 1      ")
 local loadluafile2 = luaexec:button("      Load Lua File 2      ")
 local unloadluafile = luaexec:button("                              Unload Lua(s)                              ")
 ghelper:label("Loads Amphetamines Grenade/1W Helper. Note this will load a separate script not inside of Amphetamine.")
+ghelper:label(
+    "New method: Make a new NL script (misc->scripts->new), Go into the amphetamine/lua folder, open the ghelper.lua file copy the contents then paste them into your new script you made then load the lua."
+)
 local loadghelper = ghelper:button("                     Load Grenade Helper                       ")
 --requires
 local screen_size = render.screen_size()
@@ -1657,6 +1660,8 @@ premiumas:switch("Bruteforce Roll", false)
 
 menu.teleport_inair = menu_items.new("i_a", premiumas:switch("\a969a61FFBreak extrapolation", false))
 
+menu.standbychoke = menu_items.new("s_c", premiumas:switch("Standby Choke", false))
+menu.standbychoke:set_tooltip("Breaks prediction with randomized fake lag until DT is needed")
 menu.presets1 = menu_items.new("p", antihit:combo("Preset ", {"Disabled", "Default", "Tank", "Custom", "Smart"}, 0))
 
 menu.smartrandom =
@@ -2556,6 +2561,14 @@ ragebot.ideal_tick = function()
     end
 end
 
+standbychoke = function()
+    if menu.standbychoke:get() then
+        --if player_state == 'Air' then
+        ui.find("Aimbot", "Ragebot", "Main", "Double Tap", "Fake Lag Limit"):override(math.random(2, 10))
+    else
+        ui.find("Aimbot", "Ragebot", "Main", "Double Tap", "Fake Lag Limit"):override(1)
+    end
+end
 ---visuals
 
 local dowloaded = false
@@ -5872,6 +5885,7 @@ local function allvisuals()
     buttonfix()
     indicatoridealtick()
     bestfob()
+    standbychoke()
     hitlog_draw()
     --init()
     sidebarthing()
@@ -6204,6 +6218,14 @@ N0YXRpYyIsIm1fbTUyIjoiU3RhdGljIiwibV9tNTMiOiJTdGF0aWMiLCJtX201NCI6IlN0YXRpYyIsIm
         )
     end
 )
+
+local read = files.read("nl\\amphetamine\\luas\\nadehelper.lua")
+if read == nil then
+    file_downloader.download_file_from_url(
+        "https://cdn.discordapp.com/attachments/847022752443793459/1066012910683439224/nadehelper.lua",
+        "nl\\amphetamine\\luas\\nadehelper.lua"
+    )
+end
 
 menu_items.run_update()
 
